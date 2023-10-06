@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 		if user && user.authenticate(params[:session][:password])
 			#Success
 			log_in user
+			params[:session][:remember_me] == '1' ? remember(user) : forget(user)
 			redirect_to user_path(user.id)
 			# => redirect_to /users/#{@user.id}
 		else		
