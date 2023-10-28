@@ -19,10 +19,14 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			# Success
-			log_in @user
-			remember @user
-			flash[:success] = "Welcome to the Sample App!"
-			redirect_to "/users/#{@user.id}" 
+			@user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+
+			#log_in @user
+			#remember @user
+			#flash[:success] = "Welcome to the Sample App!"
+			#redirect_to "/users/#{@user.id}" 
 			# = redirect_to user_path(user.id)
 			# = redirect_to user_path(user)
 			# = redirect_to user
