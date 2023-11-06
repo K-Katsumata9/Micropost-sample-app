@@ -2,8 +2,8 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
 
-listen '/home/ec2-user/sample_app/unicorn.sock'
-pid    '/home/ec2-user/sample_app/unicorn.pid'
+listen '/home/ec2-user/Micropost-sample-app/unicorn.sock'
+pid    '/home/ec2-user/Micropost-sample-app/unicorn.pid'
 listen 8080
 
 before_fork do |server, worker|
