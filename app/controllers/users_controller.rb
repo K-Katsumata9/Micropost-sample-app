@@ -57,11 +57,6 @@ class UsersController < ApplicationController
   end
 
 
-
-
-
-
-
   #private以下のメソッドは書き換え不可となる
 	private
 		def user_params
